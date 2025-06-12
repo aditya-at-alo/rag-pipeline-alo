@@ -1,0 +1,5 @@
+Function getBankName Returns Char ():
+
+   Return '<INPUT TYPE="TEXT" CLASS="txtField" NAME="bankname" SIZE="20" MAXLENGTH="35" VALUE="' + v-bank-name + '" ' + v-disabled + ' tabindex="5">'. /* 010001 */
+
+End Function. /* getCardExpiryYear() */

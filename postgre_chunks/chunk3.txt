@@ -1,0 +1,8 @@
+Function getCardName Returns Char ():
+
+   If Available credit-card Then
+      Return '<INPUT TYPE="TEXT" CLASS="txtField" NAME="name" SIZE="20" MAXLENGTH="30" VALUE="' + credit-card.card-holder + '" tabindex="5">'. /* 030000 */
+   Else
+      Return '<INPUT TYPE="TEXT" CLASS="txtField" NAME="name" SIZE="20" MAXLENGTH="30" VALUE="' + v-addr-name + '" tabindex="5">'. /* 030000 */
+
+End Function. /* getCardName() */

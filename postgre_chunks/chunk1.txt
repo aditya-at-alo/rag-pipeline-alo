@@ -1,0 +1,57 @@
+Function getCardExpiry Returns Char ():
+
+   Def Var v-expiry As Char No-Undo.
+
+   /*****************/
+
+   If not v-account then
+   Do:
+      v-expiry = v-expiry + ' <select  name="expMonth" tabindex="3">~n'.
+
+      Do i = 1 To 12:
+         v-expiry = v-expiry +
+            '  <option value="' + String(i) + '"'.
+
+         If Available credit-card Then
+         Do:
+            If Int( Substring(credit-card.card-expiry-date, 1, 2) ) Eq i Then
+            v-expiry = v-expiry + ' selected'.
+         End.
+         Else If Int(v-exp-month) Eq i Then
+         v-expiry = v-expiry + ' selected'.
+
+         v-expiry = v-expiry + '>'.
+
+         If i Lt 10 Then
+            v-expiry = v-expiry + '0' + String(i).
+         Else
+            v-expiry = v-expiry + String(i).
+
+         v-expiry = v-expiry + '</option>~n'.
+      End.
+
+      v-expiry = v-expiry + ' </select>~n' +
+          '&nbsp~;/&nbsp~;~n' +
+          ' <select  name="expYear" tabindex="4">~n'.
+
+      Do i = Year(Today) To ( Year(Today) + 9 ): /* 010001 */
+         v-expiry = v-expiry +
+            '  <option value="' + String(i) + '"'.
+
+         If Available credit-card Then
+         Do:
+            If Int(Substring(credit-card.card-expiry-date, 3)) Eq i Then
+            v-expiry = v-expiry + ' selected'.
+         End.
+         Else If Int(v-exp-year) Eq i Then
+         v-expiry = v-expiry + ' selected'.
+
+         v-expiry = v-expiry + '>' + String(i) + '</option>~n'.
+      End.
+
+      v-expiry = v-expiry + ' </select>~n'.
+   End.
+
+   Return v-expiry.
+
+End Function. /* getCardExpiryMonth() */

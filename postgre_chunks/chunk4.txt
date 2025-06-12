@@ -1,0 +1,40 @@
+Function getCardCountry Returns Char ():
+
+   Def Var v-country As Char No-Undo.
+
+   /************/
+
+   v-country = '<SELECT CLASS="txtField" NAME="country" tabindex="11"'.
+
+   /********************v S010002 v********************/
+
+   If v-disallow-international-addrs Then 
+      v-country = v-country + ' disabled'.
+
+   /********************^ S010002 ^********************/
+
+   v-country = v-country + '>~n' + 
+               ' <option value=""> </option>~n'.
+
+   For Each country no-lock break by country.country-name:
+
+      v-country = v-country + ' <option value="' + url-encode(country.country,"query") + '"'.
+
+      If available credit-card              and
+         credit-card.country eq country.country
+      Then
+         v-country = v-country + ' selected'.
+      else if not available credit-card and
+         company.country eq country.country
+      then
+         v-country = v-country + ' selected'.
+
+      v-country = v-country + '>' + country.country-name + '</option>~n'.
+
+   End. /* for each country */
+
+   v-country = v-country + '</SELECT>'.
+
+   Return v-country.
+
+End Function. /* getCardCountry() */
